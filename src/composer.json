@@ -1,0 +1,19 @@
+{
+    "name": "alyssoncpc/machtec",
+    "description": "A MVP for a startup",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Alyssoncpc\\Machtec\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alysson-Chrysthian",
+            "email": "alyssonchrysthian@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

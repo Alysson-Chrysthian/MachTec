@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Employee\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Login extends Component
@@ -19,6 +20,14 @@ class Login extends Component
     public function login()
     {
         $this->validate();
+
+        if (Auth::attempt([
+            'email' => $this->email,
+            'password' => $this->password,
+        ])) {
+            $this->redirect(route('employee.home'));
+            return;
+        }
     }
 
     public function render()

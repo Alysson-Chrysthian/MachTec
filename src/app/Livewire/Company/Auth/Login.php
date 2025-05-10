@@ -30,6 +30,8 @@ class Login extends Component
             $this->redirect(route('company.home'));
             return;
         }
+
+        $this->addError('password', __('auth.failed'));
     }
 
     public function render()

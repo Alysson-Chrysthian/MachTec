@@ -14,7 +14,7 @@ class Register extends Component
             'name' => ['required', 'string', 'min:3', 'max:30'],
             'email' => ['required', 'email', 'unique:companies,email'],
             'password' => ['required', 'string', 'min:8', 'max:16', 'confirmed'],
-            'cnpj' => ['required', 'digits:14', 'numeric']
+            'cnpj' => ['required', 'numeric', 'digits:14']
         ];
     }
 

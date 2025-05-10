@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Livewire\Company\Auth;
+
+use Livewire\Component;
+
+class Login extends Component
+{
+    public $email, $password, $cnpj;
+
+    public function rules()
+    {
+        return [
+            'email' => ['required', 'email', 'exists:companies,email'],
+            'password' => ['required', 'string', 'min:8', 'max:16'],
+            'cnpj' => ['required', 'numeric', 'digits:14', 'exists:companies,cnpj']
+        ];
+    }
+
+    public function login()
+    {
+        $this->validate();
+    }
+
+    public function render()
+    {
+        return view('livewire.company.auth.login');
+    }
+}

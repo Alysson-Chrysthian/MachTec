@@ -42,7 +42,11 @@
         </flux:field>
 
         <flux:button type="submit" class="w-full">Registrar-se</flux:button>
-
+    
+        <div class="flex gap-4">
+            <a href="{{ route('company.auth.login') }}">Logar como empresa</a>
+            <a href="{{ route('employee.auth.login') }}">Logar como funcionario</a>
+        </div>
     </form>
 
 </div>

@@ -40,6 +40,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'company' => [
+            'driver' => 'session',
+            'provider' => 'companies',
+        ],
+        'employee' => [
+            'driver' => 'session',
+            'provider' => 'employees',
+        ],
     ],
 
     /*
@@ -69,6 +77,16 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        'companies' => [
+            'driver' => 'database',
+            'table' => 'companies',
+        ],
+
+        'employees' => [
+            'driver' => 'database',
+            'table' => 'employees',
+        ],
     ],
 
     /*

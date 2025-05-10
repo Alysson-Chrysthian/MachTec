@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Company\Auth;
 
+use App\Models\Company;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
 class Register extends Component
@@ -21,6 +23,17 @@ class Register extends Component
     public function register()
     {
         $this->validate();
+
+        $company = new Company;
+
+        $company->name = $this->name;
+        $company->email = $this->email;
+        $company->password = Hash::make($this->password);
+        $company->cnpj = $this->cnpj;
+
+        $company->save();
+
+        $this->redirect(route('company.auth.login'));
     }
 
     public function render()

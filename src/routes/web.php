@@ -13,8 +13,13 @@ Route::prefix('/company')
         Route::get('/auth/login', App\Livewire\Company\Auth\Login::class)
             ->name('auth.login');
 
-        Route::get('/home', App\Livewire\Company\Home::class)
-            ->name('home');
+        Route::middleware('auth:company')
+            ->group(function () {
+
+            Route::get('/home', App\Livewire\Company\Home::class)
+                ->name('home');
+
+        });
 
     });
 
@@ -25,7 +30,17 @@ Route::prefix('/employee')
         Route::get('/auth/login', App\Livewire\Employee\Auth\Login::class)
             ->name('auth.login');
 
-        Route::get('/home', App\Livewire\Employee\Home::class)
-            ->name('home');
+        Route::middleware('auth:employee')
+            ->group(function () {
 
+            Route::get('/home', App\Livewire\Employee\Home::class)
+                ->name('home');
+        
+        });
+    
     });
+
+
+Route::get('/login', function () {
+    return redirect()->route('company.auth.login');
+})->name('login');

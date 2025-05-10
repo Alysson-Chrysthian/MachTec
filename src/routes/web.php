@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Employee;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/company')
@@ -22,5 +24,8 @@ Route::prefix('/employee')
 
         Route::get('/auth/login', App\Livewire\Employee\Auth\Login::class)
             ->name('auth.login');
+
+        Route::get('/home', App\Livewire\Employee\Home::class)
+            ->name('home');
 
     });

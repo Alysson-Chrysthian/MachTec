@@ -21,7 +21,7 @@ class Login extends Component
     {
         $this->validate();
 
-        if (Auth::attempt([
+        if (Auth::guard('employee')->attempt([
             'email' => $this->email,
             'password' => $this->password,
         ])) {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Compnay;
+namespace Tests\Feature\Company;
 
 use App\Livewire\Company\Auth\Register;
 use App\Models\Company;

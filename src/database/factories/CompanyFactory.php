@@ -29,8 +29,8 @@ class CompanyFactory extends Factory
 
     public function unverified() 
     {
-        return [
+        return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
-        ];
+        ]);
     }
 }

@@ -55,3 +55,7 @@ Route::prefix('/employee')
 Route::get('/login', function () {
     return redirect()->route('company.auth.login');
 })->name('login');
+
+Route::get('/', function () {
+    return redirect()->route('company.home');
+});

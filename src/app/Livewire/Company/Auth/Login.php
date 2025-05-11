@@ -27,8 +27,10 @@ class Login extends Component
             'password' => $this->password,
             'cnpj' => $this->cnpj,
         ])) {
+            if (!Auth::guard('company')->user()->hasVerifiedEmail())
+                $this->redirect(route('verification.notice'));
+
             $this->redirect(route('company.home'));
-            return;
         }
 
         $this->addError('password', __('auth.failed'));

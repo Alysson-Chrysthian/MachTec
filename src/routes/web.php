@@ -28,7 +28,10 @@ Route::prefix('/verification')
         Route::get('/verify/{id}/{hash}', [App\Http\Controllers\AuthController::class, 'verify'])
             ->middleware(['auth:company', 'signed'])
             ->name('verify');
-        
+        Route::get('/notice', App\Livewire\Company\Auth\VerificationNotice::class)
+            ->middleware(['auth:company'])
+            ->name('notice');
+
     });
 
 

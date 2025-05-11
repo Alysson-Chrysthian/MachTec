@@ -26,7 +26,6 @@ class Login extends Component
             'password' => $this->password,
         ])) {
             $this->redirect(route('employee.home'));
-            return;
         }
     
         $this->addError('password', __('auth.failed'));

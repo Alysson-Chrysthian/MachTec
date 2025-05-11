@@ -39,7 +39,7 @@ class Register extends Component
 
         event(new Registered($company));
 
-        $this->redirect(route('company.auth.login'));
+        $this->redirect(route('verification.notice'));
     }
 
     public function render()

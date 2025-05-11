@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/company')
@@ -21,7 +22,7 @@ Route::prefix('/company')
 
     });
 
-Route::get('/billing', function () {})
+Route::get('/billing', App\Livewire\Company\Billing::class)
     ->middleware(['auth:company', 'verified'])
     ->name('billing');
 

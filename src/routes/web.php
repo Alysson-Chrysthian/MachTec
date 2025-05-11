@@ -11,7 +11,7 @@ Route::prefix('/company')
         Route::get('/auth/login', App\Livewire\Company\Auth\Login::class)
             ->name('auth.login');
 
-        Route::middleware(['auth:company', 'verified'])
+        Route::middleware(['auth:company', 'verified', App\Http\Middleware\Subscribed::class])
             ->group(function () {
 
             Route::get('/home', App\Livewire\Company\Home::class)
@@ -20,6 +20,10 @@ Route::prefix('/company')
         });
 
     });
+
+Route::get('/billing', function () {})
+    ->middleware(['auth:company', 'verified'])
+    ->name('billing');
 
 Route::prefix('/verification')
     ->name('verification.')

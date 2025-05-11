@@ -2,9 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Notifications\Notifiable;
 
-class Company extends Model
+class Company extends User implements MustVerifyEmail
 {
+    use Notifiable;
+
     protected $table = 'companies'; 
 }

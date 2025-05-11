@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('email');
             $table->string('cnpj');
             $table->string('password');
+            $table->timestamp('email_verified_at')
+                ->nullable()
+                ->default(null);
             $table->timestamps();
         });
     }

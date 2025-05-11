@@ -3,6 +3,8 @@
 namespace App\Livewire\Company\Auth;
 
 use App\Models\Company;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
@@ -32,6 +34,10 @@ class Register extends Component
         $company->cnpj = $this->cnpj;
 
         $company->save();
+
+        Auth::guard('company')->login($company);
+
+        event(new Registered($company));
 
         $this->redirect(route('company.auth.login'));
     }

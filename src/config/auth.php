@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => env('AUTH_GUARD', 'web'),
+        'guard' => env('AUTH_GUARD', 'company'),
         'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
     ],
 
@@ -79,13 +79,13 @@ return [
         // ],
 
         'companies' => [
-            'driver' => 'database',
-            'table' => 'companies',
+            'driver' => 'eloquent',
+            'model' => App\Models\Company::class,
         ],
 
         'employees' => [
-            'driver' => 'database',
-            'table' => 'employees',
+            'driver' => 'eloquent',
+            'model' => App\Models\Employee::class,
         ],
     ],
 

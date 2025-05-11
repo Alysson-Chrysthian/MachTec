@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Employee;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/company')
@@ -13,7 +11,7 @@ Route::prefix('/company')
         Route::get('/auth/login', App\Livewire\Company\Auth\Login::class)
             ->name('auth.login');
 
-        Route::middleware('auth:company')
+        Route::middleware(['auth:company', 'verified'])
             ->group(function () {
 
             Route::get('/home', App\Livewire\Company\Home::class)
@@ -22,6 +20,17 @@ Route::prefix('/company')
         });
 
     });
+
+Route::prefix('/verification')
+    ->name('verification.')
+    ->group(function () {
+
+        Route::get('/verify/{id}/{hash}', [App\Http\Controllers\AuthController::class, 'verify'])
+            ->middleware(['auth:company', 'signed'])
+            ->name('verify');
+        
+    });
+
 
 Route::prefix('/employee')
     ->name('employee.')
@@ -39,7 +48,6 @@ Route::prefix('/employee')
         });
     
     });
-
 
 Route::get('/login', function () {
     return redirect()->route('company.auth.login');

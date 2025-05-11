@@ -20,7 +20,7 @@
                 Acesse todas as funcionalidades da nossa plataforma pagando apenas R$ 29.99 por mês
                 , otimo para você que quer testar nossa plataforma e ter certeza se ela é a certa para você!
             </flux:text>
-            <flux:button class="w-full">Assinar</flux:button>
+            <flux:button href="{{ route('checkout', ['plan' => 'monthly']) }}" class="w-full">Assinar</flux:button>
         </div>
         <div class="
             flex flex-col gap-8
@@ -33,7 +33,7 @@
                 Acesse todas as funcionalidades da nossa plataforma pagando apenas R$ 149.99 por ano
                 , otimo para você que quer economizar o maximo o possivel ao utilizar nossa platoforma!
             </flux:text>
-            <flux:button class="w-full">Assinar</flux:button>
+            <flux:button href="{{ route('checkout', ['plan' => 'yearly']) }}" class="w-full">Assinar</flux:button>
         </div>
     </div>
 

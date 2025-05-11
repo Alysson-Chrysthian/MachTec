@@ -26,6 +26,29 @@ Route::get('/billing', App\Livewire\Company\Billing::class)
     ->middleware(['auth:company', 'verified'])
     ->name('billing');
 
+Route::get('/checkout/{plan}', function (Illuminate\Http\Request $request, $plan) {
+    if ($request->user()->subscribed())
+        return redirect()->route('company.home');
+    
+    $priceMap = [
+        'monthly' => 'price_1RNf6BK2Y7ZOZlN0AYw1HOMF',
+        'yearly' => 'price_1RNf6BK2Y7ZOZlN0o4uFWVc3',
+    ];
+
+    if (!array_key_exists($plan, $priceMap)) {
+        abort(404, 'Plano inválido');
+    }
+
+    return $request->user()
+        ->newSubscription('default', $priceMap[$plan])
+        ->allowPromotionCodes()
+        ->checkout([
+            'success_url' => route('company.home'),
+            'cancel_url' => route('billing'),
+        ]);
+})->name('checkout');
+
+
 Route::prefix('/verification')
     ->name('verification.')
     ->group(function () {

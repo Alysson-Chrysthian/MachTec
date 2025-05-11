@@ -20,7 +20,7 @@ class CompanyFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'email' => fake()->email(),
+            'email' => fake()->unique()->safeEmail(),
             'password' => Hash::make('password'),
             'cnpj' => Random::generate(14, '0-9'),
             'email_verified_at' => now(),

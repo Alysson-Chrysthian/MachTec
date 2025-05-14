@@ -26,6 +26,10 @@ Route::get('/billing', App\Livewire\Company\Billing::class)
     ->middleware(['auth:company', 'verified'])
     ->name('billing');
 
+Route::get('/checkout/{name}', [App\Http\Controllers\PlanController::class, 'checkout'])
+    ->middleware(['auth:company', 'verified'])
+    ->name('checkout');
+
 Route::prefix('/verification')
     ->name('verification.')
     ->group(function () {

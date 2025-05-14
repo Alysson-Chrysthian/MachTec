@@ -11,6 +11,7 @@
         <flux:brand href="{{ route('company.home') }}" logo="https://fluxui.dev/img/demo/dark-mode-logo.png" name="MachTec Inc." class="max-lg:hidden! hidden dark:flex" />
 
         <flux:navbar class="max-lg:hidden">
+            <flux:navbar.item>Dashboard</flux:navbar.item>
             <flux:dropdown>
                 <flux:navbar.item icon:trailing="chevron-down">Maquinas</flux:navbar.item>
                 
@@ -42,6 +43,7 @@
         <flux:brand href="{{ route('company.home') }}" logo="https://fluxui.dev/img/demo/dark-mode-logo.png" name="MachTec Inc." class="px-2 hidden dark:flex" />
 
         <flux:navlist>
+            <flux:navlist.item>Dashboard</flux:navlist.item>
             <flux:navlist.group expandable heading="Maquinas">
                 <flux:navlist.item>Ver maquinas</flux:navlist.item>
                 <flux:navlist.item>Minhas maquinas</flux:navlist.item>

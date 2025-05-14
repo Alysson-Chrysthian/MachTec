@@ -16,7 +16,6 @@ class PlanSeeder extends Seeder
         DB::table('plans')
             ->insert([
                 'name' => 'monthly',
-                'price' => 99999,
                 'stripe_price_id' => 'price_1ROSNWGMntdVxC2dKKX5arb3',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -24,7 +23,6 @@ class PlanSeeder extends Seeder
         DB::table('plans')
             ->insert([
                 'name' => 'yearly',
-                'price' => 1024999,
                 'stripe_price_id' => 'price_1ROSWFGMntdVxC2dZUEfGcqx',
                 'created_at' => now(),
                 'updated_at' => now(),

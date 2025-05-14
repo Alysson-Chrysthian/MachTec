@@ -4,8 +4,6 @@
     items-center justify-center
 ">
 
-    {{ (int) auth()->user()->subscribed() }}
-
     <div class="
         flex flex-row gap-8 m-auto
         items-center justify-center

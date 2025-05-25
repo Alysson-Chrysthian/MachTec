@@ -16,7 +16,7 @@
                 <flux:navbar.item icon:trailing="chevron-down">Maquinas</flux:navbar.item>
                 
                 <flux:navmenu>
-                    <flux:navmenu.item>Ver maquinas</flux:navmenu.item>
+                    <flux:navmenu.item href="compnay.machine">Ver maquinas</flux:navmenu.item>
                     <flux:navmenu.item>Minhas maquinas</flux:navmenu.item>
                 </flux:navmenu>
             </flux:dropdown>
@@ -29,7 +29,7 @@
                     <flux:navmenu.item>Meus tickets</flux:navmenu.item>
                 </flux:navmenu>
             </flux:dropdown>
-            <flux:navbar.item>Sair</flux:navbar.item>
+            <flux:navbar.item href="{{ route('company.logout') }}">Sair</flux:navbar.item>
         </flux:navbar>
     </flux:header>
 
@@ -45,7 +45,7 @@
         <flux:navlist>
             <flux:navlist.item>Dashboard</flux:navlist.item>
             <flux:navlist.group expandable heading="Maquinas">
-                <flux:navlist.item>Ver maquinas</flux:navlist.item>
+                <flux:navlist.item href="{{ route('company.machine') }}">Ver maquinas</flux:navlist.item>
                 <flux:navlist.item>Minhas maquinas</flux:navlist.item>
             </flux:navlist.group>
             <flux:navlist.group expandable heading="Suporte">
@@ -53,7 +53,7 @@
                 <flux:navlist.item>Criar ticket</flux:navlist.item>
                 <flux:navlist.item>Meus ticket</flux:navlist.item>
             </flux:navlist.group>
-            <flux:navlist.item>Sair</flux:navlist.item>
+            <flux:navlist.item href="{{ route('company.logout') }}">Sair</flux:navlist.item>
         </flux:navlist>
     </flux:sidebar>
 

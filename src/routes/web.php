@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/company')
@@ -12,11 +13,19 @@ Route::prefix('/company')
         Route::get('/auth/login', App\Livewire\Company\Auth\Login::class)
             ->name('auth.login');
 
+        Route::get('/logout', function () {
+            Auth::guard('company')->logout();
+            return redirect()->route('company.auth.login');
+        })->name('logout');
+
         Route::middleware(['auth:company', 'verified', App\Http\Middleware\Subscribed::class])
             ->group(function () {
 
             Route::get('/home', App\Livewire\Company\Home::class)
                 ->name('home');
+
+            Route::get('/machines', App\Livewire\Company\Machine\Index::class)
+                ->name('machine');
 
         });
 
@@ -50,6 +59,12 @@ Route::prefix('/employee')
 
         Route::get('/auth/login', App\Livewire\Employee\Auth\Login::class)
             ->name('auth.login');
+        
+        Route::get('/logout', function () {
+            Auth::guard('employee')->logout();
+            return redirect()->route('employee.auth.login');
+        })->name('logout');
+
 
         Route::middleware('auth:employee')
             ->group(function () {

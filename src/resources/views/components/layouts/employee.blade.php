@@ -51,7 +51,7 @@
                 <flux:navlist.item>Ver tickets</flux:navlist.item>
                 <flux:navlist.item>Tickets respondidos</flux:navlist.item>
             </flux:navlist.group>
-            <flux:navlist.item>Sair</flux:navlist.item>
+            <flux:navlist.item href="{{ route('employee.logout') }}">Sair</flux:navlist.item>
         </flux:navlist>
     </flux:sidebar>
 

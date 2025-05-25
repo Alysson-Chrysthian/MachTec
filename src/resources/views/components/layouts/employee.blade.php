@@ -17,7 +17,7 @@
                 
                 <flux:navmenu>
                     <flux:navmenu.item>Ver maquinas</flux:navmenu.item>
-                    <flux:navmenu.item>Adicionar maquinas</flux:navmenu.item>
+                    <flux:navmenu.item href="{{ route('employee.machine.create') }}">Adicionar maquinas</flux:navmenu.item>
                 </flux:navmenu>
             </flux:dropdown>
             <flux:dropdown>
@@ -28,7 +28,7 @@
                     <flux:navmenu.item>Tickets respondidos</flux:navmenu.item>
                 </flux:navmenu>
             </flux:dropdown>
-            <flux:navbar.item>Sair</flux:navbar.item>
+            <flux:navbar.item href="{{ route('employee.logout') }}">Sair</flux:navbar.item>
         </flux:navbar>
     </flux:header>
 
@@ -45,7 +45,7 @@
             <flux:navlist.item>Ver empresas</flux:navlist.item>
             <flux:navlist.group expandable heading="Maquinas">
                 <flux:navlist.item>Ver maquinas</flux:navlist.item>
-                <flux:navlist.item>Adicionar maquinas</flux:navlist.item>
+                <flux:navlist.item href="{{ route('employee.machine.create') }}">Adicionar maquinas</flux:navlist.item>
             </flux:navlist.group>
             <flux:navlist.group expandable heading="Tickets">
                 <flux:navlist.item>Ver tickets</flux:navlist.item>

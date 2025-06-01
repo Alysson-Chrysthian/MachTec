@@ -82,14 +82,28 @@
                     <flux:heading level="2" size="xl">{{ Illuminate\Support\Str::limit($machine->name, 15) }}</flux:heading>
                 </div>
                 <div class="px-4 pb-4">
-                    <flux:button 
-                        variant="primary" 
-                        class="
-                            w-full
-                            cursor-pointer
-                            hover:brightness-65
-                        "
-                    >Selecionar</flux:button>
+                    @if ($machine->selected->isEmpty())
+                        <flux:button 
+                            variant="primary" 
+                            class="
+                                w-full
+                                cursor-pointer
+                                hover:brightness-65
+                            "
+                            wire:click="selectMachine({{ $machine->id }})"
+                        >Selecionar</flux:button>
+                    @else
+                        <flux:button 
+                            variant="primary" 
+                            class="
+                                w-full
+                                cursor-pointer
+                                hover:brightness-65
+                            "
+                            wire:click="selectMachine({{ $machine->id }})"
+                            wire:confirm="Você tem certeza de que deseja encomendar outro(a) {{ $machine->name }}"
+                        ><flux:icon.check-circle></flux:icon.check-circle></flux:button>
+                    @endif
                 </div>
             </div>
         @endforeach
@@ -155,4 +169,11 @@
             changeCircle()
         }
     </script>
+    @script
+        <script>
+            Livewire.on('machine-selected', () => {
+                alert('Maquina seleciona com sucesso');
+            });
+        </script>
+    @endscript
 @endPushOnce

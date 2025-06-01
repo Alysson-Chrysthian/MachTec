@@ -17,7 +17,7 @@
                 
                 <flux:navmenu>
                     <flux:navmenu.item href="compnay.machine">Ver maquinas</flux:navmenu.item>
-                    <flux:navmenu.item>Minhas maquinas</flux:navmenu.item>
+                    <flux:navmenu.item href="company.machine.collection">Minhas maquinas</flux:navmenu.item>
                 </flux:navmenu>
             </flux:dropdown>
             <flux:dropdown>
@@ -46,7 +46,7 @@
             <flux:navlist.item>Dashboard</flux:navlist.item>
             <flux:navlist.group expandable heading="Maquinas">
                 <flux:navlist.item href="{{ route('company.machine') }}">Ver maquinas</flux:navlist.item>
-                <flux:navlist.item>Minhas maquinas</flux:navlist.item>
+                <flux:navlist.item href="{{ route('company.machine.collection') }}">Minhas maquinas</flux:navlist.item>
             </flux:navlist.group>
             <flux:navlist.group expandable heading="Suporte">
                 <flux:navlist.item>Ver tickets</flux:navlist.item>

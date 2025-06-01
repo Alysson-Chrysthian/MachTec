@@ -23,8 +23,11 @@ Route::prefix('/company')
 
             Route::get('/home', App\Livewire\Company\Home::class)
                 ->name('home');
+            
             Route::get('/machines', App\Livewire\Company\Machine\Index::class)
                 ->name('machine');
+            Route::get('/machines/my-collection', App\Livewire\Company\Machine\Collection::class)
+                ->name('machine.collection');
 
         });
 

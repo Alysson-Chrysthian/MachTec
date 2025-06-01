@@ -99,7 +99,6 @@
 
 @pushOnce('scripts')
     <script>
-
         function changeCircle() 
         {
             const perImageWidth = parseFloat(getComputedStyle(document.querySelector('.card img')).width);
@@ -130,7 +129,12 @@
             const card = document.querySelector(`#cardId-${cardId}`);
             const images = card.querySelector('.images');
 
+            const previousScrollPoint = images.scrollLeft;
+
             images.scrollBy(-(perImageWidth), 0)
+
+            if (images.scrollLeft == previousScrollPoint) 
+                images.scrollTo(images.scrollWidth, 0);
 
             changeCircle()
         }
@@ -141,8 +145,13 @@
             const card = document.querySelector(`#cardId-${cardId}`);
             const images = card.querySelector('.images');
 
-            images.scrollBy(perImageWidth, 0);
+            const previousScrollPoint = images.scrollLeft;
             
+            images.scrollBy(perImageWidth, 0);
+
+            if (images.scrollLeft == previousScrollPoint) 
+                images.scrollTo(0, 0);
+
             changeCircle()
         }
     </script>
